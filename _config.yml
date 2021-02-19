@@ -27,6 +27,7 @@ url: "https://robotahu.github.io" # the base hostname & protocol for your site, 
 twitter_username: robotahu
 github_username:  robotahu
 permalink: pretty
+paginate: 5
 
 # Build settings
 theme: minima
