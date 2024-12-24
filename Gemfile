@@ -28,7 +28,8 @@ end
 # Performance-booster for watching directories on Windows
 gem "wdm", :platforms => [:mingw, :x64_mingw, :mswin]
 
-
 gem "webrick"
 
 gem "jekyll-paginate"
+
+gem "sass-embedded", "~> 1.78.0"
