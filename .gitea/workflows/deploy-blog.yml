@@ -1,0 +1,33 @@
+name: Deploy Jekyll Blog
+
+on:
+  push:
+    branches:
+      - main  # Adjust to your default branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '3.1'  # Use the version required by your project
+        bundler-cache: true
+
+    - name: Install dependencies
+      run: |
+        bundle install
+
+    - name: Build Jekyll site
+      run: |
+        bundle exec jekyll build --destination _site
+
+    - name: Copy to shared directory
+      run: |
+        cp -r _site/* /shared/
+
