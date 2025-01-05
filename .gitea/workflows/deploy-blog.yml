@@ -6,8 +6,8 @@ on:
       - main  # Adjust to your default branch
 
 jobs:
-  deploy:
-    runs-on: ubuntu-latest
+  build-and-deploy:
+    runs-on: self-hosted  # Use your self-hosted runner
 
     steps:
     - name: Checkout repository
@@ -29,5 +29,5 @@ jobs:
 
     - name: Copy to shared directory
       run: |
-        cp -r _site/* /shared/
+        cp -r _site/* /blog/_site/
 
