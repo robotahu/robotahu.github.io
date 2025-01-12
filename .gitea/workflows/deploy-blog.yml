@@ -7,7 +7,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: linux_amd64
 
     steps:
     - name: Checkout repository
@@ -29,10 +29,11 @@ jobs:
 
     - name: Create private key
       run: |
-          echo "${{ secrets.ACT_RUNNER_KEY }}" > /tmp/act_runner_key
-          chmod 600 /tmp/act_runner_key
+        ls /
+          #echo "${{ secrets.ACT_RUNNER_KEY }}" > /tmp/act_runner_key
+        #chmod 600 /tmp/act_runner_key
 
     - name: Copy to shared directory
       run: |
-        echo "${{ secrets.HOST_USER }}@${{ secrets.HOST_URL }}:${{ secrets.BLOG_PATH }}"
-        scp -i /tmp/act_runner_key -P 2242 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -r _site/. "${{ secrets.HOST_USER }}@${{ secrets.HOST_URL }}:${{ secrets.BLOG_PATH }}"
+          #echo "${{ secrets.HOST_USER }}@${{ secrets.HOST_URL }}:${{ secrets.BLOG_PATH }}"
+        #scp -i /tmp/act_runner_key -P 2242 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -r _site/. "${{ secrets.HOST_USER }}@${{ secrets.HOST_URL }}:${{ secrets.BLOG_PATH }}"
